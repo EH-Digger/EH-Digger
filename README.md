@@ -3,7 +3,7 @@ Underneath the Iceberg: Understanding and Mining the Underlying Errors of Error-
 
 ---
 
-## Introduction
+## IntroductiWon
 EH-Digger is a bug detection tool for error-handling bugs. Manually constructing templates or error specifications requires much human effort and is difficult to accommodate the software evolution, while existing learning-based approaches are hard to learn real reasons of the error-handling code in many cases. The main reason of this limitation is that existing approaches only learn API calls near error-handling code snippets, instead of trying to understanding the underlying errors handled by these code snippets. Accordingly, we design EH-Digger, an automated tool to detect error-handling bugs by mining handling patterns of underlying errors.
 
 
