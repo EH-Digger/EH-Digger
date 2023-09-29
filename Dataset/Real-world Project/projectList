@@ -1,0 +1,16 @@
+Linux kernel:
+release 6.5 https://github.com/torvalds/linux/releases/tag/v6.5
+release 4.14 https://github.com/torvalds/linux/releases/tag/v4.14
+
+Applications:
+Bitkeeper 7.3.3 https://github.com/bitkeeper-scm/bitkeeper/releases/tag/bk-7.3.2
+Redis 6.0.6 https://github.com/redis/redis/releases/tag/6.0.6 
+Curl 7.43.0 https://github.com/curl/curl/releases/tag/curl-7_43_0
+Vlc 0.1.99e https://github.com/videolan/vlc/releases/tag/0.1.99e
+Obs-studio 0.13.1 https://github.com/obsproject/obs-studio/releases/tag/0.13.1
+Mutter 2.27.1 https://github.com/GNOME/mutter/releases/tag/2.27.1
+IJKPlayer 0.0.1 https://github.com/bilibili/ijkplayer/releases/tag/n0.0.1
+Bftpd 2.2 https://bftpd.sourceforge.net/news.html#032108
+Netdata  1.0.0 https://github.com/netdata/netdata/releases/tag/v1.0.0
+Ayttm 0.6.1 https://ayttm.sourceforge.net/files.php
+HandBrake 0.9.4 https://github.com/HandBrake/HandBrake/releases/tag/0.9.4
