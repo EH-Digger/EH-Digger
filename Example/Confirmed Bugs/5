@@ -1,0 +1,9 @@
+> Check the return value of i2c_add_adapter. Static analysis revealed that
+> the function did not properly handle potential failures of
+> i2c_add_adapter, which could lead to partial initialization of the I2C
+> adapter and unstable operation.
+
+Applied, thank you.
+
+-- 
+Dmitry
