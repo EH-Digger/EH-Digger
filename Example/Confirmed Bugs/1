@@ -1,0 +1,39 @@
+Hi ,
+
+> This patch adds error handling for the platform_get_drvdata call
+> within the psw_irq_handler function in
+> arch/sh/boards/mach-highlander/psw.c. Previously, the absence of
+> error checking could lead to unexpected behavior if
+> platform_get_drvdata returned a null pointer.
+>
+
+Thanks for your patch!
+
+> --- a/arch/sh/boards/mach-highlander/psw.c
+> +++ b/arch/sh/boards/mach-highlander/psw.c
+> @@ -21,6 +21,12 @@ static irqreturn_t psw_irq_handler(int irq, void *arg)
+>         unsigned int l, mask;
+>         int ret = 0;
+>
+> +       if (!psw) {
+> +               pr_err("psw_irq_handler: No push_switch data associated
+> +                       with platform_device\n");
+> +               return IRQ_NONE;
+> +       }
+> +
+>         l = __raw_readw(PA_DBSW);
+>
+>         /* Nothing to do if there's no state change */
+
+This means the button is pressed, and the interrupt fired, in
+between the calls to request_irq() and platform_set_drvdata() in
+arch/sh/drivers/push-switch.c:switch_drv_probe()?
+
+The same issue can happen with arch/sh/boards/mach-landisk/psw.c.
+I think the proper solution is to fix this inside the push switch
+driver, by moving the call to request_irq() after the call to
+platform_set_drvdata() (and doing the reverse in switch_drv_remove()).
+
+Gr{oetje,eeting}s,
+
+                        Geert
