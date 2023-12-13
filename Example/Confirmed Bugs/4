@@ -1,0 +1,48 @@
+> This patch introduces error handling for the request_region call in the
+> superio_init function within drivers/parisc/superio.c. Prior to this patch,
+> the function did not handle the scenario where request_region might fail,
+> potentially leading to resource conflicts.
+>
+> Although the error addressed by this patch may not occur in the current
+> environment, I still suggest implementing these error handling routines
+> if the function is not highly time-sensitive. As the environment evolves
+> or the code gets reused in different contexts, there's a possibility that
+> these errors might occur. Addressing them now can prevent potential
+> debugging efforts in the future, which could be quite resource-intensive.
+> ---
+>   drivers/parisc/superio.c | 20 +++++++++++++++++---
+>   1 file changed, 17 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/parisc/superio.c b/drivers/parisc/superio.c
+> index e973c6893203..36c01e70671d 100644
+> --- a/drivers/parisc/superio.c
+> +++ b/drivers/parisc/superio.c
+> @@ -187,9 +187,23 @@ superio_init(struct pci_dev *pcidev)
+>   	sio->acpi_base &= ~1;
+>   	printk(KERN_INFO PFX "ACPI at 0x%x\n", sio->acpi_base);
+>
+> -	request_region (IC_PIC1, 0x1f, "pic1");
+> -	request_region (IC_PIC2, 0x1f, "pic2");
+> -	request_region (sio->acpi_base, 0x1f, "acpi");
+> +	if (!request_region(IC_PIC1, 0x1f, "pic1")) {
+> +		printk(KERN_ERR PFX "request_region failed for pic1\n");
+Maybe you want to use pr_err() instead here ?
+Helge
+> +		return;
+> +	}
+> +
+> +	if (!request_region(IC_PIC2, 0x1f, "pic2")) {
+> +		printk(KERN_ERR PFX "request_region failed for pic2\n");
+> +		release_region(IC_PIC1, 0x1f);
+> +		return;
+> +	}
+> +
+> +	if (!request_region(sio->acpi_base, 0x1f, "acpi")) {
+> +		printk(KERN_ERR PFX "request_region failed for acpi\n");
+> +		release_region(IC_PIC1, 0x1f);
+> +		release_region(IC_PIC2, 0x1f);
+> +		return;
+> +	}
+>
+>   	/* Enable the legacy I/O function */
+>   	pci_read_config_word (pdev, PCI_COMMAND, &word);
