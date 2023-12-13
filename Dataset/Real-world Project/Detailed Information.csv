@@ -1,0 +1,13 @@
+Domain,Name,Line Number,Sponsor
+Development Tool,Bitkeeper,1246529,BitMover
+Development Tool,HandBrake,254797,Community
+Development Tool,Obs-studio,581997,"NVIDIA,Logitech,Logitech"
+Data Transfer Tool,Curl,294521,Haxx
+Monitor,Netdata,698838,Cloud Native Computing Foundation (CNCF)
+Database,Redis,299660,"
+Redis"
+Media Player,IJKPlayer,51495,Bilibili
+Media Player,Vlc,969331,VideoLAN
+Window Manager,Mutter,520673,GNOME Foundation
+FTP,Bftpd,11123,Community
+Messaging Client,Ayttm,108894,Free Software Foundation (FSF)
