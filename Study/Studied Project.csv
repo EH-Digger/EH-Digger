@@ -1,0 +1,23 @@
+Domain,Name,Line Number,Studied Error-Handling Code Snippets,Sponsor
+Web server,lighttpd,132521,81,Community
+Web server,Nginx,230147,158,Community
+Web server,Hiawatha,61941,85,Community
+Database,MonetDB,452349,205,Centrum Wiskunde & Informatica (CWI) 
+Database,Sqlmap,104574,97,GitHub Sponsors program
+Database,Mysql (twitter fork),18396,183,Twitter
+FTP,FileZilla,152117,106,Community
+FTP,Pure-FTPd,32924,152,Community
+FTP,ProFTPD,845882,186,Community
+Image Editor,Darktable,664703,134,Community
+Image Editor,gThumb,207107,107,GNOME project
+Image Editor,KolourPaint,73004,56,KDE Community
+Player,Audacious,49795,52,DigitalOcean
+Player,MPV,203794,105,Community
+Network Monitor,Netsniff ,65182,97,Community
+Network Monitor,Wireshark,5949177,210,"Sysdig, Wireshark Foundation"
+Distributed Storage,Miniob,46155,34,Ant Group
+Distributed Storage,Rclone,3822,34,Community
+Distributed Storage,Rpm-ostree,49388,46, Fedora Project
+Distributed Storage,Rook,4463,37,Cloud Native Computing Foundation (CNCF)
+Development Tool,NetBeans,9201,64,Apache NetBeans project
+Development Tool,gnome-shell,242440,93,GNOME project
